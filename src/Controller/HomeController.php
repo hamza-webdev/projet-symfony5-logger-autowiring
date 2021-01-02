@@ -12,16 +12,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
+
+    private $logger;
+
+    /**
+     * Undocumented function
+     *
+     * @param \Psr\Log\LoggerInterface $dbLogger
+     */
+    public function __construct(LoggerInterface $dbLogger)
+    {
+        $this->logger = $dbLogger;
+    }
+
     /**
      * @Route("/home", name="home")
      */
-    public function index(LoggerInterface $logger)
+    public function index()
     {
-       $logger->warning("warning logger test ");
-        $logger->info('I just got the logger');
-        $logger->error('An error occurred');
+       $this->logger->warning("Notre premier log service dbHandler a tester !! ");
+        $this->logger->info('I just got the logger');
+        $this->logger->error('An error occurred');
 
-        $logger->critical('I left the oven on!', [
+        $this->logger->critical('I left the oven on!', [
             // include extra "context" info in your logs
             'cause' => 'in_hurry',
         ]);

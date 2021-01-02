@@ -32,3 +32,6 @@ services:
 
     dbhandler:
         class: App\Utility\DbHandler
+
+    # App\Controller\HomeController: 
+    #     arguments: ['@monolog.logger.db']

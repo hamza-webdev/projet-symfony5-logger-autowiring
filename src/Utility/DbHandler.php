@@ -25,7 +25,8 @@ class DbHandler extends AbstractProcessingHandler
             ->setMessage($record['message'])
             ;
 
-            
+        $this->manager->persist($log);
+        $this->manager->flush();    
         
     }
 
