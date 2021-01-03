@@ -23,6 +23,7 @@ class DbHandler extends AbstractProcessingHandler
             ->setLevel($record['level'])
             ->setLevelName($record['level_name'])
             ->setMessage($record['message'])
+            ->setExtra($record)
             ;
 
         $this->manager->persist($log);
